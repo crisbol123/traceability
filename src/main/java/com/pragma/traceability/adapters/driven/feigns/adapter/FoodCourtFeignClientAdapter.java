@@ -4,6 +4,7 @@ import com.pragma.traceability.adapters.driven.feigns.clients.FoodCourtFeignClie
 import com.pragma.traceability.domain.spi.IFoodCourtFeignClientPort;
 
 import java.util.List;
+import java.util.Map;
 
 public class FoodCourtFeignClientAdapter implements IFoodCourtFeignClientPort {
     private final FoodCourtFeignClient foodCourtFeignClient;
@@ -15,5 +16,15 @@ public class FoodCourtFeignClientAdapter implements IFoodCourtFeignClientPort {
     @Override
     public List<Long> getOrdersIdByClientId(Long clientId) {
         return foodCourtFeignClient.getOrdersIdByClientId(clientId);
+    }
+
+    @Override
+    public List<Long> getAllOrdersId() {
+        return foodCourtFeignClient.getAllOrdersId();
+    }
+
+    @Override
+    public Map<Long, Long> getOrdersIdAndEmployeeId() {
+        return foodCourtFeignClient.getOrdersIdAndEmployeeId();
     }
 }

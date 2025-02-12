@@ -7,7 +7,9 @@ import com.pragma.traceability.domain.spi.IFoodCourtFeignClientPort;
 import com.pragma.traceability.domain.spi.ISecurityContextPort;
 import com.pragma.traceability.domain.spi.StatePersistancePort;
 
+import java.time.Duration;
 import java.util.List;
+import java.util.Map;
 
 public class StateUseCase implements IStateServicePort {
     private final StatePersistancePort statePersistancePort;
@@ -31,5 +33,17 @@ private final IFoodCourtFeignClientPort foodCourtFeignClientPort;
         Long clientId = securityContextPort.getUserId();
         List<Long> ordersId = foodCourtFeignClientPort.getOrdersIdByClientId(clientId);
         return statePersistancePort.getTraceabilityByOrderIdList(ordersId);
+    }
+
+    @Override
+    public Map<Long, Duration> getEficiencyAllOrder() {
+        List<Long> listAllOrdersId = foodCourtFeignClientPort.getAllOrdersId();
+        return statePersistancePort.getEficiencyAllOrder(listAllOrdersId);
+    }
+
+    @Override
+    public Map<Long, Double> getEficiencyAllEmployee() {
+      Map<Long, Long> orderIdEmployeeId =foodCourtFeignClientPort.getOrdersIdAndEmployeeId();
+        return statePersistancePort.getEficiencyAllEmployee(orderIdEmployeeId);
     }
 }

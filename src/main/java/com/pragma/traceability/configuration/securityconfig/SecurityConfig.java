@@ -36,6 +36,8 @@ public class SecurityConfig {
                                 .requestMatchers("/swagger-ui.html").permitAll()
                                 .requestMatchers("/state/save").hasAnyRole(CUSTOMER_ROLE, EMPLOYEE_ROLE)
                                 .requestMatchers("/state/consult-traceability").hasRole(CUSTOMER_ROLE)
+                                .requestMatchers("/state/consult-eficiency-by-order").hasRole(OWNER_ROLE)
+                                .requestMatchers("/state/getEfficiencyAllEmployee").hasRole(OWNER_ROLE)
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManager ->
