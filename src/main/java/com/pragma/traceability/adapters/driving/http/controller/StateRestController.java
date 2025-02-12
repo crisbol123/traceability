@@ -21,4 +21,7 @@ public class StateRestController {
         return ResponseEntity.ok().build();
 
     }
+    @GetMapping("/consult-traceability")
+    public
+    }
 }

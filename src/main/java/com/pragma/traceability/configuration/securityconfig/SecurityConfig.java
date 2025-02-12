@@ -20,6 +20,7 @@ public class SecurityConfig {
     private static final String ADMIN_ROLE = "ADMIN";
     private static final String OWNER_ROLE = "OWNER";
     private static final String CUSTOMER_ROLE = "CUSTOMER";
+    private static final String EMPLOYEE_ROLE = "EMPLOYEE";
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -33,7 +34,7 @@ public class SecurityConfig {
                                 .requestMatchers("/swagger-resources/**").permitAll()
                                 .requestMatchers("/webjars/**").permitAll()
                                 .requestMatchers("/swagger-ui.html").permitAll()
-                                .requestMatchers("/state/save").hasRole(CUSTOMER_ROLE)
+                                .requestMatchers("/state/save").hasAnyRole(CUSTOMER_ROLE, EMPLOYEE_ROLE)
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManager ->
