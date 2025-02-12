@@ -2,11 +2,15 @@ package com.pragma.traceability.adapters.driving.http.controller;
 
 
 import com.pragma.traceability.adapters.driving.http.dto.request.StateDTO;
+import com.pragma.traceability.adapters.driving.http.dto.response.TraceabilityResponse;
 import com.pragma.traceability.adapters.driving.http.mapper.IStateRequestMapper;
 import com.pragma.traceability.domain.api.IStateServicePort;
+import com.pragma.traceability.domain.model.Traceability;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/state")
@@ -22,6 +26,8 @@ public class StateRestController {
 
     }
     @GetMapping("/consult-traceability")
-    public
+    public List<TraceabilityResponse> getTraceability() {
+        List<Traceability> traceability = stateServicePort.getTraceability();
+        return stateRequestMapper.toResponse(traceability);
     }
 }

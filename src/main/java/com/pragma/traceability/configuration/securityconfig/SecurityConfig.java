@@ -35,6 +35,7 @@ public class SecurityConfig {
                                 .requestMatchers("/webjars/**").permitAll()
                                 .requestMatchers("/swagger-ui.html").permitAll()
                                 .requestMatchers("/state/save").hasAnyRole(CUSTOMER_ROLE, EMPLOYEE_ROLE)
+                                .requestMatchers("/state/consult-traceability").hasRole(CUSTOMER_ROLE)
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManager ->
