@@ -4,8 +4,6 @@ package com.pragma.traceability.adapters.driven.feigns.adapter;
 import com.pragma.traceability.adapters.driven.feigns.clients.UserFeignClient;
 import com.pragma.traceability.adapters.driven.feigns.dto.AuthorizationRequest;
 import com.pragma.traceability.adapters.driven.feigns.dto.AuthorizationResponse;
-import com.pragma.traceability.adapters.driven.feigns.dto.OwnerRequest;
-import com.pragma.traceability.adapters.driven.feigns.dto.OwnerResponse;
 import com.pragma.traceability.domain.spi.UserFeignClientPort;
 
 public class UserFeignClientAdapter implements UserFeignClientPort {

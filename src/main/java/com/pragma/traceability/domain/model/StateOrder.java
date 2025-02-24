@@ -2,7 +2,6 @@ package com.pragma.traceability.domain.model;
 
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class StateOrder {

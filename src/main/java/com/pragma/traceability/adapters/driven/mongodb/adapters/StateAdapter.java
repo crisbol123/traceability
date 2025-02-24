@@ -1,6 +1,6 @@
-package com.pragma.traceability.adapters.driven.mongoDB.adapters;
+package com.pragma.traceability.adapters.driven.mongodb.adapters;
 
-import com.pragma.traceability.adapters.driven.mongoDB.repository.StateRepository;
+import com.pragma.traceability.adapters.driven.mongodb.repository.StateRepository;
 import com.pragma.traceability.domain.model.StateOrder;
 import com.pragma.traceability.domain.model.Traceability;
 import com.pragma.traceability.domain.spi.StatePersistancePort;
